@@ -1,7 +1,7 @@
 version: "2"
 services:
   nacos:
-    image: nacos/nacos-server:1.4.0-BETA
+    image: nacos/nacos-server:1.4.1
     container_name: nacos-standalone-mysql
     env_file:
       - ../env/nacos-standlone-mysql.env
@@ -9,8 +9,8 @@ services:
       - ./standalone-logs/:/home/nacos/logs
       - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
     ports:
-      - "8848:8848"
-      - "9555:9555"
+      - "25848:8848"
+      - "25555:9555"
     depends_on:
       - mysql
     restart: always
@@ -22,6 +22,6 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "25306:3306"
 
 
