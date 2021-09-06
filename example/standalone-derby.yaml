@@ -6,6 +6,14 @@ services:
     environment:
     - PREFER_HOST_MODE=hostname
     - MODE=standalone
+    - JVM_XMS=512m
+    - JVM_XMX=512m
+    - MYSQL_MASTER_SERVICE_HOST=127.0.0.1
+    - MYSQL_MASTER_SERVICE_PORT=25306
+    - MYSQL_MASTER_SERVICE_DB_NAME=nacos
+    - MYSQL_MASTER_SERVICE_USER=nacos
+    - MYSQL_MASTER_SERVICE_PASSWORD=eatmans$
+    - MYSQL_DATABASE_NUM=1
     volumes:
     - ./standalone-logs/:/home/nacos/logs
     - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
